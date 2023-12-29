@@ -20,4 +20,4 @@ jobs:
         run: kyverno version
 
       - name: Test the policy against the resource
-        run: kyverno apply policies/cpol-disallow-default-namespace.yml --resource resources/nginx-pod.yml --table --detailed-results
+        run: kyverno apply policies/cpol-disallow-default-namespace.yml --resource resources/nginx-pod.yml --table
