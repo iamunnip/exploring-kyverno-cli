@@ -1,0 +1,21 @@
+name: Testing Policies using Kyverno CLI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  kyverno_cli:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout respository
+        uses: actions/checkout@4
+
+      - name: Setup Kyverno CLI
+        uses: kyverno/action-install-cli@v0.2.0
+
+      - name: Verify Kyverno CLI installation
+        run: kyverno version
+
+      - name: Test the policy against the resource
+        run: kyverno apply policies/cpol-disallow-default-namespace.yml --resource resources/nginx-pod.yml --table --detailed-results
