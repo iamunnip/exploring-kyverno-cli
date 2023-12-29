@@ -9,7 +9,7 @@ jobs:
     steps:
 
       - name: Checkout respository
-        uses: actions/checkout@4
+        uses: actions/checkout@v4.1.1
 
       - name: Setup Kyverno CLI
         uses: kyverno/action-install-cli@v0.2.0
